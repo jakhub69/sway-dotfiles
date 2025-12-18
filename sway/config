@@ -92,7 +92,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+b exec $browser
 
 # System menu
-bindsym $mod+Shift+e exec $HOME/.config/sway/scripts/sysmenu.sh $dmenu
+bindsym $mod+Shift+e exec $HOME/.config/sway/scripts/sysmenu.sh
 
 # Audio
 bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
