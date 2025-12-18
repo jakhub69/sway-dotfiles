@@ -54,7 +54,7 @@ set $term alacritty
 set $browser firefox
 set $menu j4-dmenu-desktop --term="alacritty" --dmenu='bemenu -i --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --af "#c6d0f5" --ab "#303446" --fn "CommitMono 13"'
 #set $menu bemenu-run --drun --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --af "#c6d0f5" --ab "#303446" --fn "CommitMono 13" --ignorecase --prompt ">"
-#set $dmenu bemenu --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --af "#c6d0f5" --ab "#303446" --fn "CommitMono 13" --ignorecase
+set $dmenu bemenu --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --af "#c6d0f5" --ab "#303446" --fn "CommitMono 13" --ignorecase
 
 ### Output configuration
 
@@ -101,8 +101,7 @@ bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@
 bindsym --locked XF86AudioMicMute exec wpctl set-mute \@DEFAULT_AUDIO_SOURCE@ toggle
 
 # Screenshot
-#bindsym Print exec $HOME/.config/sway/scripts/screenshot.sh "save"
-bindsym Print exec ~/.config/sway/scripts/screenshot.sh "save" > /tmp/screen_error.log 2>&1
+bindsym Print exec $HOME/.config/sway/scripts/screenshot.sh "save"
 bindsym $mod+Print exec $HOME/.config/sway/scripts/screenshot.sh "copy"
 bindsym $mod+Shift+s exec $HOME/.config/sway/scripts/screenshot.sh "copy"
 bindsym $mod+Shift+t exec $HOME/.config/sway/scripts/screenshot.sh "extract-text"
@@ -214,14 +213,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-### Auto tiling
+### Auto start
 
 exec_always autotiling
+exec discord
+
 
 ### Status Bar
 
 bar {
     position top
+    tray_output *
 
     status_command while "$HOME/.config/sway/scripts/statusbar.sh"; do sleep 1; done
 

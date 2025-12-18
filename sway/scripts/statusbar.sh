@@ -17,6 +17,10 @@ cpu_display="󰍛 $cpu_usage%"
 # ---------------- RAM Usage ----------------
 ram=$(free -h | awk '/^Mem:/ {print "󰘚 " $3 "/" $2}')
 
+# ---------------- Disk Usage ----------------
+# Wyciąga zajęte miejsce na głównej partycji /
+disk=$(df -h / | awk 'NR==2 {print "󰋊 " $3 "/" $2}')
+
 # ---------------- Network ----------------
 if ip link show | grep -E "state UP" | grep -qE "eth|enp|eno"; then
     net_icon="󰈀"
@@ -41,7 +45,8 @@ fi
 volume="$vol_icon $vol_val%"
 
 # ---------------- Clock ----------------
-clock="$(date '+󰥔 %H:%M 󰃭 %d.%m.%Y')"
+# %A to pełna nazwa dnia tygodnia
+clock="$(date '+󰥔 %H:%M 󰃭 %A, %d.%m.%Y')"
 
 # ---------------- Combine ----------------
-echo "$cpu_display | $ram | $network | $volume | $clock"
+echo "$cpu_display | $ram | $disk | $network | $volume | $clock"
