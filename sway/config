@@ -66,8 +66,8 @@ output DP-2 pos 2560 0
 ### Idle configuration
 
 exec swayidle -w \
-         timeout 300 'swaylock -f' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 3000 'swaylock -f' \
+         timeout 6000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f'
 
 ### Input configuration
@@ -217,6 +217,7 @@ bindsym $mod+r mode "resize"
 exec_always autotiling
 exec discord
 exec wl-paste -t text --watch clipman store
+exec sway-audio-idle-inhibit
 
 # Clipboard manager
 
