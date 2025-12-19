@@ -1,0 +1,18 @@
+[format]
+workspace = "{name} {icons}"
+icon_separator = " "
+
+[icons]
+
+[aliases]
+"Alacritty"           = "Terminal"
+"firefox"             = "Firefox"
+"org.mozilla.firefox" = "Firefox"
+"Mozilla Firefox"     = "Firefox"
+"org.kde.kate"                = "Kate"
+"org.kde.dolphin"             = "Dolphin"
+"discord"             = "Discord"
+"nvim"                = "Neovim"
+"filezilla"           = "FileZilla"
+"vlc"                 = "VLC"
+"org.prismlauncher.PrismLauncher" = "Prism Launcher"

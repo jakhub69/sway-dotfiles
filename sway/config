@@ -217,6 +217,7 @@ exec Discord
 exec wl-paste --type text --watch clipman store --no-persist
 exec wl-paste --type image --watch clipman store --no-persist
 exec sway-audio-idle-inhibit
+exec_always swaywsr --config ~/.config/swaywsr/config.toml
 
 # Clipboard manager
 

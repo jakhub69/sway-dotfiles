@@ -25,7 +25,7 @@ Run the following commands to install all required packages, tools, and fonts:
 
 ```bash
 # Install system packages
-sudo dnf install sway alacritty xdg-desktop-portal-wlr swaybg swaylock swayidle bemenu mako wl-clipboard clipman grim slurp libnotify unzip ripgrep imv j4-dmenu-desktop wget playerctl meson ninja-build gcc gcc-c++ scdoc wayland-devel systemd-devel pulseaudio-libs-devel
+sudo dnf install sway alacritty xdg-desktop-portal-wlr swaybg swaylock swayidle bemenu mako wl-clipboard clipman grim slurp libnotify unzip ripgrep imv j4-dmenu-desktop wget playerctl meson ninja-build gcc gcc-c++ scdoc wayland-devel systemd-devel pulseaudio-libs-devel cargo
 
 # Install CommitMono Font
 curl -sLO https://github.com/eigilnikolajsen/commit-mono/releases/download/v1.143/CommitMono-1.143.zip
@@ -46,6 +46,12 @@ git clone https://github.com/ErikReider/sway-audio-idle-inhibit.git
 cd sway-audio-idle-inhibit
 meson setup build && ninja -C build
 sudo ninja -C build install
+
+# Install SwayWSR
+git clone https://github.com/pedroscaff/swaywsr.git
+cd swaywsr
+cargo build --release
+sudo cp target/release/swaywsr /usr/local/bin/
 
 # Install Autotiling script
 sudo wget -O /usr/local/bin/autotiling https://raw.githubusercontent.com/nwg-piotr/autotiling/master/autotiling/main.py
