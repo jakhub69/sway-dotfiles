@@ -159,8 +159,6 @@ focus_on_window_activation focus
 no_focus [window_role="pop-up"]
 no_focus [window_role="task_dialog"]
 
-
-
 workspace 1 output DP-1
 workspace 2 output DP-1
 workspace 3 output DP-1
@@ -215,8 +213,9 @@ bindsym $mod+r mode "resize"
 ### Auto start
 
 exec_always autotiling
-exec discord
-exec wl-paste -t text --watch clipman store
+exec Discord
+exec wl-paste --type text --watch clipman store --no-persist
+exec wl-paste --type image --watch clipman store --no-persist
 exec sway-audio-idle-inhibit
 
 # Clipboard manager
