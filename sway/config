@@ -95,10 +95,9 @@ bindsym $mod+b exec $browser
 bindsym $mod+Shift+e exec $HOME/.config/sway/scripts/sysmenu.sh
 
 # Audio
-bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-bindsym --locked XF86AudioMicMute exec wpctl set-mute \@DEFAULT_AUDIO_SOURCE@ toggle
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && notify-send -h string:x-canonical-private-synchronous:volume "Głośność" "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' )%"
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send -h string:x-canonical-private-synchronous:volume "Głośność" "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' )%"
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send "Dźwięk" "Przełączono wyciszenie"
 
 # Screenshot
 bindsym Print exec $HOME/.config/sway/scripts/screenshot.sh "save"
@@ -217,7 +216,15 @@ bindsym $mod+r mode "resize"
 
 exec_always autotiling
 exec discord
+exec wl-paste -t text --watch clipman store
 
+# Clipboard manager
+
+bindsym $mod+c exec clipman pick -t bemenu --tool-args='-i -l 10 -p "Schowek:" -W 0.5 --fn "CommitMono 13" --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --af "#c6d0f5" --ab "#303446"'
+
+# Binds helper
+
+bindsym $mod+z exec grep -E '^bindsym' ~/.config/sway/config | cut -d' ' -f2- | sort | bemenu -l 25 -p "Skróty:" -W 0.5 --fn "CommitMono 13" --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --af "#c6d0f5" --ab "#303446"
 
 ### Status Bar
 
