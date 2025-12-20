@@ -46,10 +46,10 @@ gaps outer 0
 ### Variables
 
 set $mod Mod4
-set $left h
-set $down j
-set $up k
-set $right l
+set $left Left
+set $down Down
+set $up Up
+set $right Right
 set $term alacritty
 set $browser firefox
 set $menu j4-dmenu-desktop --term="alacritty" --dmenu='bemenu -i --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --af "#c6d0f5" --ab "#303446" --fn "CommitMono 13"'
